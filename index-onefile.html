@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="ur" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quran Tutor — آن لائن قرآن اکیڈمی</title>
+<meta name="description" content="Online Qur'an learning: Tajweed, Hifz, Qaida — Free trial. اردو/عربی/انگریزی۔ UPI/Stripe/PayPal.">
+<style>
+:root{
+  --primary:#065f46;
+  --primary-600:#047857;
+  --accent:#f6c54d;
+  --muted:#6b7280;
+  --ink:#0f172a;
+  --card:#ffffff;
+  --bg:#f3f4f6;
+  --shadow:0 8px 28px rgba(2,6,23,0.06);
+  --radius:14px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{font-family:'Noto Nastaliq Urdu','Noto Sans',Arial,sans-serif;background:var(--bg);color:var(--ink);margin:0}
+a{color:inherit}
+.container{max-width:1080px;margin:18px auto;padding:18px}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);}
+.btn{background:var(--primary);color:#fff;padding:10px 16px;border-radius:12px;text-decoration:none;display:inline-block;font-weight:700;border:none;cursor:pointer}
+.btn:focus{outline:3px solid #99f6e4;outline-offset:2px}
+.btn.alt{background:#fff;color:var(--primary);border:1px solid #e5e7eb}
+.badge{display:inline-block;background:#ecfeff;color:#0e7490;border:1px solid #cffafe;border-radius:999px;padding:2px 8px;font-size:12px;font-weight:700}
+input,select,textarea{width:100%;padding:10px;border-radius:10px;border:1px solid #e6e6e6;background:#fff;font-size:15px}
+label{display:block;margin:8px 0 6px;font-weight:700}
+/* Header */
+.header{display:flex;align-items:center;gap:12px;padding:14px 16px}
+.header .brand{display:flex;align-items:center;gap:12px}
+.logo{width:56px;height:56px;border-radius:10px;display:grid;place-items:center;background:#ecfdf5;color:var(--primary);font-weight:900}
+.brand-title{font-weight:800;color:var(--primary)}
+nav{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
+nav a{text-decoration:none;color:var(--muted);font-weight:700;padding:6px 10px;border-radius:10px}
+nav a:hover{color:var(--primary);background:#eef2ff}
+/* Hero */
+.hero{margin-top:18px;position:relative;overflow:hidden;color:#fff;text-align:center}
+.hero .pad{padding:36px}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 10% -20%,#34d399,transparent 60%),linear-gradient(180deg,rgba(6,95,70,.95),rgba(6,95,70,.88));}
+.hero .inner{position:relative}
+.hero h1{font-size:30px;margin:0 0 10px}
+.hero p{margin:0 0 14px;color:rgba(255,255,255,.92)}
+.cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+/* Features */
+.features{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+.feature{padding:14px;text-align:center}
+.feature strong{display:block;margin-bottom:6px}
+.small{font-size:13px;color:var(--muted)}
+/* Section */
+.section{margin-top:18px;padding:16px}
+.section h2{margin:0 0 10px;font-size:22px}
+/* Teachers */
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 12px}
+.grid{display:grid;gap:12px}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.teacher{padding:14px;display:flex;gap:12px}
+.avatar{width:60px;height:60px;border-radius:12px;object-fit:cover;background:#e2e8f0}
+.tmeta{display:flex;justify-content:space-between;gap:8px;align-items:center}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.price{font-weight:800}
+.rating{color:#a16207;font-weight:800}
+/* Pricing */
+.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px}
+.plan{padding:16px;border:2px solid transparent}
+.plan.pop{border-color:#10b981}
+.plan h3{margin:0}
+.plan .p{font-size:34px;font-weight:900;margin:6px 0}
+.plan ul{margin:0;padding:0;list-style:none}
+.plan li{display:flex;gap:6px;margin:6px 0;align-items:center}
+/* Tabs */
+.tabs{margin-top:12px}
+.tab-head{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tab-head button{padding:10px;border-radius:10px;border:1px solid #e6e6e6;background:#fff;font-weight:800;cursor:pointer}
+.tab-head button.active{background:#ecfdf5;border-color:#a7f3d0;color:#047857}
+.tab-body{margin-top:12px}
+/* FAQ */
+.faq{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+/* Footer */
+footer{margin:18px 0 8px;text-align:center;color:var(--muted);font-size:13px}
+/* Responsive */
+@media (max-width:980px){
+  .grid-3{grid-template-columns:repeat(2,1fr)}
+  .pricing{grid-template-columns:repeat(2,1fr)}
+  .faq{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:720px){
+  nav{width:100%;margin:8px 0 0}
+  .features{grid-template-columns:repeat(2,1fr)}
+  .grid-3{grid-template-columns:1fr}
+  .pricing{grid-template-columns:1fr}
+  .faq{grid-template-columns:1fr}
+}
+.toast{position:fixed;inset-inline:0;bottom:12px;display:flex;justify-content:center;pointer-events:none}
+.toast .box{pointer-events:auto;background:#ecfdf5;border:1px solid #a7f3d0;color:#065f46;padding:10px 14px;border-radius:12px;box-shadow:var(--shadow)}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <header class="card header">
+    <div class="brand">
+      <div class="logo">ب</div>
+      <div>
+        <div class="brand-title">آن لائن قرآن اکیڈمی</div>
+        <div class="small">Qutor-style — سادہ ایک فائل</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#home">سرورق</a>
+      <a href="#teachers">اساتذہ</a>
+      <a href="#pricing">قیمت</a>
+      <a href="#signup">اندراج</a>
+      <a href="#contact">رابطہ</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="card hero">
+    <div class="pad inner">
+      <span class="badge">نئی رجسٹریشن پر مفت ٹرائل</span>
+      <h1>وَرَتِّلِ الْقُرْآنَ تَرْتِیلًا</h1>
+      <p>تجوید، حفظ، قراءت — تجربہ کار اور تصدیق شدہ اساتذہ کے ساتھ 1:1 کلاسز</p>
+      <div class="cta">
+        <a class="btn" href="#signup">ابھی شامل ہوں</a>
+        <a class="btn alt" href="#teachers">اساتذہ دیکھیں</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <div class="card feature"><strong>ماہر اساتذہ</strong><div class="small">Ijazah & background check</div></div>
+    <div class="card feature"><strong>لچکدار اوقات</strong><div class="small">آپ کے وقت کے مطابق</div></div>
+    <div class="card feature"><strong>ہنر مند ٹیکنالوجی</strong><div class="small">ویڈیو + وائٹ بورڈ</div></div>
+    <div class="card feature"><strong>کثیر لسانی</strong><div class="small">اردو/عربی/انگریزی</div></div>
+  </section>
+
+  <!-- Teacher Directory -->
+  <section id="teachers" class="section card">
+    <h2>منتخب اساتذہ</h2>
+    <div class="tools">
+      <div style="flex:1;min-width:180px">
+        <label>موضوع</label>
+        <select id="filterSubject">
+          <option value="">سب</option>
+          <option value="Tajweed">تجوید</option>
+          <option value="Hifz">حفظ</option>
+          <option value="Qiraat">قراءت</option>
+          <option value="Tafsir">تفسیر</option>
+          <option value="Arabic">عربی</option>
+        </select>
+      </div>
+      <div style="flex:1;min-width:160px">
+        <label>زبان</label>
+        <select id="filterLang">
+          <option value="">سب</option>
+          <option value="Urdu">اردو</option>
+          <option value="Arabic">عربی</option>
+          <option value="English">انگریزی</option>
+        </select>
+      </div>
+      <div style="flex:1;min-width:140px">
+        <label>بجٹ (USD/گھنٹہ)</label>
+        <input id="filterBudget" type="number" placeholder="مثلاً 10">
+      </div>
+      <div style="min-width:160px">
+        <label>ترتیب</label>
+        <select id="sortBy">
+          <option value="rating">درجہ بندی</option>
+          <option value="price_low">قیمت: کم سے زیادہ</option>
+          <option value="price_high">قیمت: زیادہ سے کم</option>
+        </select>
+      </div>
+      <div style="align-self:end">
+        <button class="btn" id="applyFilters">فلٹر کریں</button>
+      </div>
+    </div>
+    <div class="grid grid-3" id="teacherGrid"></div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section card">
+    <h2>طریقہ کار</h2>
+    <div class="grid grid-3">
+      <div class="card feature"><strong>اکاؤنٹ بنائیں</strong><div class="small">والدین/طالب علم</div></div>
+      <div class="card feature"><strong>ٹرائل بک کریں</strong><div class="small">آپ کی سہولت کے وقت</div></div>
+      <div class="card feature"><strong>کلاس شروع کریں</strong><div class="small">ویڈیو + نوٹس</div></div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="section card">
+    <h2>پیکجز</h2>
+    <div class="pricing">
+      <div class="card plan">
+        <h3>Starter</h3>
+        <div class="p">$19<span class="small">/مہینہ</span></div>
+        <ul>
+          <li>— 2 ٹرائل کلاسز</li>
+          <li>— لچکدار شیڈول</li>
+          <li>— ڈیش بورڈ</li>
+        </ul>
+        <div style="margin-top:10px"><a class="btn" href="#signup">منتخب کریں</a></div>
+      </div>
+      <div class="card plan pop">
+        <h3>Standard <span class="badge">مقبول</span></h3>
+        <div class="p">$49<span class="small">/مہینہ</span></div>
+        <ul>
+          <li>— 8 کلاسز / مہینہ</li>
+          <li>— پراگریس رپورٹ</li>
+          <li>— ترجیحی معاونت</li>
+        </ul>
+        <div style="margin-top:10px"><a class="btn" href="#signup">منتخب کریں</a></div>
+      </div>
+      <div class="card plan">
+        <h3>Pro</h3>
+        <div class="p">$89<span class="small">/مہینہ</span></div>
+        <ul>
+          <li>— 16 کلاسز / مہینہ</li>
+          <li>— 1:1 رہنمائی</li>
+          <li>— فیملی پلان (2 بچے)</li>
+        </ul>
+        <div style="margin-top:10px"><a class="btn" href="#signup">منتخب کریں</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sign up tabs -->
+  <section id="signup" class="section card">
+    <h2>اندراج</h2>
+    <div class="tabs">
+      <div class="tab-head">
+        <button id="tabStudent" class="active">طالب علم / والدین</button>
+        <button id="tabTeacher">استاد</button>
+      </div>
+      <div class="tab-body">
+        <div id="studentForm">
+          <div class="grid" style="grid-template-columns:1fr 1fr;gap:12px">
+            <div>
+              <label>نام</label>
+              <input id="s_name" required placeholder="آپ کا نام">
+            </div>
+            <div>
+              <label>ای میل</label>
+              <input id="s_email" type="email" required placeholder="you@example.com">
+            </div>
+            <div>
+              <label>پاس ورڈ</label>
+              <input id="s_pass" type="password" required placeholder="••••••••">
+            </div>
+            <div>
+              <label>پسندیدہ زبان</label>
+              <select id="s_lang">
+                <option>اردو</option><option>عربی</option><option>انگریزی</option>
+              </select>
+            </div>
+            <div>
+              <label>کیا سیکھنا چاہتے ہیں؟</label>
+              <select id="s_subject">
+                <option>تجوید</option><option>حفظ</option><option>قراءت</option><option>تفسیر</option>
+              </select>
+            </div>
+            <div>
+              <label>دن</label>
+              <input id="s_days" placeholder="مثلاً: پیر، بدھ، جمعہ">
+            </div>
+            <div>
+              <label>ٹائم زون</label>
+              <input id="s_tz" value="Asia/Kolkata">
+            </div>
+            <div>
+              <label>خصوصی ہدف</label>
+              <textarea id="s_notes" rows="2" placeholder="اختیاری"></textarea>
+            </div>
+          </div>
+          <div style="margin-top:10px"><button class="btn" id="btnStudent">اکاؤنٹ بنائیں</button></div>
+        </div>
+        <div id="teacherForm" class="hidden">
+          <div class="grid" style="grid-template-columns:1fr 1fr;gap:12px">
+            <div>
+              <label>نام</label>
+              <input id="t_name" placeholder="آپ کا نام">
+            </div>
+            <div>
+              <label>ای میل</label>
+              <input id="t_email" type="email" placeholder="you@example.com">
+            </div>
+            <div>
+              <label>پاس ورڈ</label>
+              <input id="t_pass" type="password" placeholder="••••••••">
+            </div>
+            <div>
+              <label>زبانیں</label>
+              <input id="t_langs" placeholder="مثلاً: عربی، اردو، انگریزی">
+            </div>
+            <div>
+              <label>اجازہ / اسناد</label>
+              <textarea id="t_certs" rows="2" placeholder="ادارے اور اسناد"></textarea>
+            </div>
+            <div>
+              <label>فی گھنٹہ قیمت (USD)</label>
+              <input id="t_rate" type="number" placeholder="مثلاً 10">
+            </div>
+            <div>
+              <label>میسر ٹائم زونز</label>
+              <input id="t_tz" placeholder="Asia/Karachi, Europe/London">
+            </div>
+          </div>
+          <div style="margin-top:10px"><button class="btn" id="btnTeacher">استاد کے طور پر اپلائی کریں</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section card">
+    <h2>اکثر پوچھے گئے سوالات</h2>
+    <div class="faq">
+      <div class="card feature"><strong>کیا مفت ٹرائل ہے؟</strong><div class="small">جی ہاں، 2 مفت کلاسز</div></div>
+      <div class="card feature"><strong>خواتین استاد دستیاب؟</strong><div class="small">جی ہاں</div></div>
+      <div class="card feature"><strong>کونسے ٹولز؟</strong><div class="small">Zoom/Meet + وائٹ بورڈ</div></div>
+    </div>
+  </section>
+
+  <!-- Contact & UPI -->
+  <section id="contact" class="section card">
+    <h2>رابطہ</h2>
+    <div class="grid" style="grid-template-columns:1fr 360px">
+      <div>
+        <div class="grid" style="grid-template-columns:1fr 1fr;gap:12px">
+          <div>
+            <label>نام</label>
+            <input id="c_name" placeholder="آپ کا نام">
+          </div>
+          <div>
+            <label>ای میل</label>
+            <input id="c_email" type="email" placeholder="you@example.com">
+          </div>
+        </div>
+        <div>
+          <label style="margin-top:8px">پیغام</label>
+          <textarea id="c_msg" rows="3" placeholder="اپنا پیغام لکھیں"></textarea>
+        </div>
+        <div style="margin-top:10px"><button class="btn" id="btnContact">پیغام بھیجیں</button></div>
+      </div>
+      <div class="card" style="padding:12px">
+        <h3 style="margin:0 0 8px">UPI ادائیگی</h3>
+        <div class="small">UPI ID</div>
+        <div style="font-weight:900;color:var(--primary);margin:6px 0">9265791187@pthdfc</div>
+        <div class="small">رقم مثال: ₹500</div>
+        <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+          <a class="btn" href="upi://pay?pa=9265791187@pthdfc&pn=Online%20Quran%20Academy&cu=INR&am=500&tn=Quran%20Course%20Fee">UPI سے ادائیگی</a>
+          <a class="btn alt" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?data=upi://pay?pa=9265791187@pthdfc&pn=Online%20Quran%20Academy&cu=INR&am=500&tn=Quran%20Course%20Fee&size=240x240">QR کھولیں</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Quran Tutor — قرآن کی روشنی ہر گھر تک
+  </footer>
+
+</div>
+
+<!-- Toast -->
+<div class="toast hidden" id="toast"><div class="box" id="toastText">...</div></div>
+
+<script>
+// Year
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Teachers data
+const teachers = [
+  {id:1,name:'استاد احمد',country:'Pakistan',rating:4.9,price:8,langs:['Urdu','Arabic','English'],tags:['Tajweed','Hifz'],bio:'Al-Azhar certified. 7+ years.',avatar:''},
+  {id:2,name:'استادہ مریم',country:'Egypt',rating:5.0,price:12,langs:['Arabic','English'],tags:['Qiraat','Tafsir'],bio:'Ijazah in Hafs. Female-only.',avatar:''},
+  {id:3,name:'مولانا بلال',country:'UK',rating:4.8,price:15,langs:['English','Urdu'],tags:['Fiqh','Kids'],bio:'Great with kids.',avatar:''},
+  {id:4,name:'قاری عثمان',country:'Pakistan',rating:4.7,price:6,langs:['Urdu'],tags:['Tajweed'],bio:'Nazra & Tajweed expert.',avatar:''},
+  {id:5,name:'قاریہ زینب',country:'KSA',rating:4.95,price:10,langs:['Arabic','Urdu'],tags:['Hifz','Tajweed'],bio:'Hifz specialist.',avatar:''},
+  {id:6,name:'Mufti Hamza',country:'USA',rating:4.85,price:18,langs:['English'],tags:['Tafsir','Adults'],bio:'Advanced Tafsir.',avatar:''},
+];
+
+const teacherGrid = document.getElementById('teacherGrid');
+function avatarMarkup(name){
+  const initials = name.trim().slice(0,2);
+  return `<div style="width:60px;height:60px;border-radius:12px;background:#ecfeff;color:#0e7490;display:grid;place-items:center;font-weight:900">${initials}</div>`;
+}
+function teacherCard(t){
+  return `<div class="card teacher">
+    ${t.avatar ? `<img class="avatar" src="${t.avatar}" alt="${t.name}">` : avatarMarkup(t.name)}
+    <div style="flex:1">
+      <div class="tmeta">
+        <div>
+          <div style="font-weight:800">${t.name} <span class="badge">${t.country}</span></div>
+          <div class="small">${t.langs.join('، ')} • ${t.tags.join('، ')}</div>
+        </div>
+        <div style="text-align:end">
+          <div class="price">$${t.price}/hr</div>
+          <div class="rating">★ ${t.rating.toFixed(2)}</div>
+        </div>
+      </div>
+      <div class="small" style="margin-top:6px">${t.bio}</div>
+      <div class="tags">
+        ${t.tags.map(tag=>`<span class="badge">${tag}</span>`).join('')}
+      </div>
+      <div style="display:flex;gap:8px;margin-top:10px">
+        <a class="btn alt" href="#signup">پروفائل</a>
+        <a class="btn" href="#signup">ٹرائل بک کریں</a>
+      </div>
+    </div>
+  </div>`;
+}
+function renderTeachers(list){
+  teacherGrid.innerHTML = list.map(teacherCard).join('');
+}
+renderTeachers(teachers);
+
+// Filters & sort
+function applyFilters(){
+  const subj = document.getElementById('filterSubject').value;
+  const lang = document.getElementById('filterLang').value;
+  const budget = parseFloat(document.getElementById('filterBudget').value || '0');
+  const sortBy = document.getElementById('sortBy').value;
+  let list = teachers.filter(t=>{
+    const subjOk = !subj || t.tags.includes(subj);
+    const langOk = !lang || t.langs.includes(lang);
+    const budgetOk = !budget || t.price <= budget;
+    return subjOk && langOk && budgetOk;
+  });
+  if(sortBy==='rating'){ list.sort((a,b)=>b.rating-a.rating); }
+  if(sortBy==='price_low'){ list.sort((a,b)=>a.price-b.price); }
+  if(sortBy==='price_high'){ list.sort((a,b)=>b.price-a.price); }
+  renderTeachers(list);
+}
+document.getElementById('applyFilters').addEventListener('click', applyFilters);
+
+// Tabs
+const tabStudent = document.getElementById('tabStudent');
+const tabTeacher = document.getElementById('tabTeacher');
+const studentForm = document.getElementById('studentForm');
+const teacherForm = document.getElementById('teacherForm');
+tabStudent.addEventListener('click',()=>{
+  tabStudent.classList.add('active'); tabTeacher.classList.remove('active');
+  studentForm.classList.remove('hidden'); teacherForm.classList.add('hidden');
+});
+tabTeacher.addEventListener('click',()=>{
+  tabTeacher.classList.add('active'); tabStudent.classList.remove('active');
+  teacherForm.classList.remove('hidden'); studentForm.classList.add('hidden');
+});
+
+// Toast helper
+const toast = document.getElementById('toast');
+const toastText = document.getElementById('toastText');
+function showToast(msg){
+  toastText.textContent = msg;
+  toast.classList.remove('hidden');
+  setTimeout(()=>toast.classList.add('hidden'), 2500);
+}
+
+// Buttons (mock submit)
+document.getElementById('btnStudent').addEventListener('click', ()=>{
+  showToast('اکاؤنٹ بن گیا — آپ سے رابطہ کیا جائے گا (ڈیمو)');
+});
+document.getElementById('btnTeacher').addEventListener('click', ()=>{
+  showToast('درخواست جمع ہو گئی — ٹیم ریویو کرے گی (ڈیمو)');
+});
+document.getElementById('btnContact').addEventListener('click', ()=>{
+  showToast('پیغام موصول ہو گیا — شکریہ!');
+});
+</script>
+</body>
+</html>
