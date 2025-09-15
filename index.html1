@@ -376,12 +376,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 // Teachers data
 const teachers = [
-  {id:1,name:'استاد احمد',country:'Pakistan',rating:4.9,price:8,langs:['Urdu','Arabic','English'],tags:['Tajweed','Hifz'],bio:'Al-Azhar certified. 7+ years.',avatar:''},
-  {id:2,name:'استادہ مریم',country:'Egypt',rating:5.0,price:12,langs:['Arabic','English'],tags:['Qiraat','Tafsir'],bio:'Ijazah in Hafs. Female-only.',avatar:''},
-  {id:3,name:'مولانا بلال',country:'UK',rating:4.8,price:15,langs:['English','Urdu'],tags:['Fiqh','Kids'],bio:'Great with kids.',avatar:''},
-  {id:4,name:'قاری عثمان',country:'Pakistan',rating:4.7,price:6,langs:['Urdu'],tags:['Tajweed'],bio:'Nazra & Tajweed expert.',avatar:''},
-  {id:5,name:'قاریہ زینب',country:'KSA',rating:4.95,price:10,langs:['Arabic','Urdu'],tags:['Hifz','Tajweed'],bio:'Hifz specialist.',avatar:''},
-  {id:6,name:'Mufti Hamza',country:'USA',rating:4.85,price:18,langs:['English'],tags:['Tafsir','Adults'],bio:'Advanced Tafsir.',avatar:''},
+  teachers are coming soon
 ];
 
 const teacherGrid = document.getElementById('teacherGrid');
