@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn Quran online with Tajweed, Hifz, and Islamic Studies – anywhere, anytime." />
+  <meta name="keywords" content="Online Quran Academy, Quran Tutor, Tajweed, Hifz, Islamic Studies, Learn Quran" />
+  <title>Online Quran Academy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f9fc;
+      color: #222;
+    }
+    header {
+      background-color: #2b6cb0;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    .hero {
+      text-align: center;
+      padding: 4rem 1rem;
+      background: linear-gradient(to right, #2b6cb0, #63b3ed);
+      color: white;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+    }
+    .section {
+      padding: 2rem 1rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    .placeholder {
+      text-align: center;
+      background: #fff;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #2b6cb0;
+      color: white;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>Online Quran Academy</h2>
+  </header>
+
+  <section class="hero">
+    <h1>Learn Quran Online – Anywhere, Anytime</h1>
+    <p>Join our online academy to learn Tajweed, Hifz and Islamic Studies with expert teachers.</p>
+  </section>
+
+  <section class="section">
+    <div class="placeholder">
+      <h2>Our Qualified Teachers</h2>
+      <p>Coming Soon – We are carefully selecting professional teachers to guide you in your Quran journey.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Online Quran Academy. All rights reserved.</p>
+  </footer>
+</body>
+</html>
