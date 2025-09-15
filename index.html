@@ -6,26 +6,42 @@
 <title>Quran Tutor — آن لائن قرآن اکیڈمی</title>
 <meta name="description" content="Online Qur'an learning: Tajweed, Hifz, Qaida — Free trial. اردو/عربی/انگریزی۔ UPI/Stripe/PayPal.">
 <style>
-/* اصل CSS وہی رہنے دیں */
+:root{
+  --primary:#065f46;
+  --primary-600:#047857;
+  --accent:#f6c54d;
+  --muted:#6b7280;
+  --ink:#0f172a;
+  --card:#ffffff;
+  --bg:#f3f4f6;
+  --shadow:0 8px 28px rgba(2,6,23,0.06);
+  --radius:14px;
+}
+body{font-family:'Noto Nastaliq Urdu','Noto Sans',Arial,sans-serif;background:var(--bg);color:var(--ink);margin:0}
 </style>
 </head>
 <body>
 <div class="container">
 
-  <!-- باقی ہیڈر اور ہیرو وہی رہنے دیں -->
-
-  <!-- Teacher Directory -->
+  <!-- Header & Hero وہی رہنے دیں -->
+  
+  <!-- Teachers Section -->
   <section id="teachers" class="section card">
     <h2>منتخب اساتذہ</h2>
-    <p style="text-align:center;padding:20px">اساتذہ جلد شامل کیے جائیں گے</p>
+    <p style="text-align:center;padding:20px;font-weight:bold">اساتذہ جلد شامل کیے جائیں گے</p>
   </section>
 
-  <!-- باقی سیکشنز وہی رہنے دیں -->
+  <!-- باقی Sections وہی رہنے دیں -->
+  
+  <footer>
+    © <span id="year"></span> Quran Tutor — قرآن کی روشنی ہر گھر تک
+  </footer>
 
 </div>
+
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
-// teachers array اور renderTeachers ہٹا دیں تاکہ grid خالی رہے
+// teachers array اور renderTeachers ہٹا دیے تاکہ grid خالی رہے
 </script>
 </body>
 </html>
