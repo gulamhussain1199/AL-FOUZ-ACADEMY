@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ur" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quran Tutor — آن لائن قرآن اکیڈمی</title>
+<meta name="description" content="Online Qur'an learning: Tajweed, Hifz, Qaida — Free trial. اردو/عربی/انگریزی۔ UPI/Stripe/PayPal.">
+<style>
+:root{
+  --primary:#065f46;
+  --primary-600:#047857;
+  --accent:#f6c54d;
+  --muted:#6b7280;
+  --ink:#0f172a;
+  --card:#ffffff;
+  --bg:#f3f4f6;
+  --shadow:0 8px 28px rgba(2,6,23,0.06);
+  --radius:14px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{font-family:'Noto Nastaliq Urdu','Noto Sans',Arial,sans-serif;background:var(--bg);color:var(--ink);margin:0}
+a{color:inherit}
+.container{max-width:1080px;margin:18px auto;padding:18px}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);}
+.btn{background:var(--primary);color:#fff;padding:10px 16px;border-radius:12px;text-decoration:none;display:inline-block;font-weight:700;border:none;cursor:pointer}
+.btn:focus{outline:3px solid #99f6e4;outline-offset:2px}
+.btn.alt{background:#fff;color:var(--primary);border:1px solid #e5e7eb}
+input,textarea,select{width:100%;padding:10px;border-radius:10px;border:1px solid #e6e6e6;background:#fff;font-size:15px;margin-top:4px}
+label{display:block;margin-top:10px;font-weight:700}
+pre{background:#ecfdf5;padding:12px;border-radius:8px;margin-top:12px;white-space:pre-wrap}
+.header{display:flex;align-items:center;gap:12px;padding:14px 16px}
+.header .brand{display:flex;align-items:center;gap:12px}
+.logo{width:56px;height:56px;border-radius:10px;display:grid;place-items:center;background:#ecfdf5;color:var(--primary);font-weight:900}
+.brand-title{font-weight:800;color:var(--primary)}
+nav{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
+nav a{text-decoration:none;color:var(--muted);font-weight:700;padding:6px 10px;border-radius:10px}
+nav a:hover{color:var(--primary);background:#eef2ff}
+.section{margin-top:18px;padding:16px}
+.section h2{margin:0 0 10px;font-size:22px}
+.grid{display:grid;gap:12px}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.teacher{padding:14px;display:flex;gap:12px}
+.avatar{width:60px;height:60px;border-radius:12px;object-fit:cover;background:#e2e8f0}
+.tmeta{display:flex;justify-content:space-between;gap:8px;align-items:center}
+.badge{display:inline-block;background:#ecfeff;color:#0e7490;border:1px solid #cffafe;border-radius:999px;padding:2px 8px;font-size:12px;font-weight:700}
+.price{font-weight:800}
+.rating{color:#a16207;font-weight:800}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <header class="card header">
+    <div class="brand">
+      <div class="logo">ب</div>
+      <div>
+        <div class="brand-title">آن لائن قرآن اکیڈمی</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#home">سرورق</a>
+      <a href="#teachers">اساتذہ</a>
+      <a href="#pricing">قیمت</a>
+      <a href="#signup">اندراج</a>
+      <a href="#contact">رابطہ</a>
+      <a href="#addteacher">نیا استاد</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="card hero" style="padding:36px;text-align:center;background:linear-gradient(135deg,#065f46,#047857);color:#fff">
+    <span class="badge">نئی رجسٹریشن پر مفت ٹرائل</span>
+    <h1>وَرَتِّلِ الْقُرْآنَ تَرْتِیلًا</h1>
+    <p>تجوید، حفظ، قراءت — تجربہ کار اور تصدیق شدہ اساتذہ کے ساتھ 1:1 کلاسز</p>
+    <div style="margin-top:10px">
+      <a class="btn" href="#signup">ابھی شامل ہوں</a>
+      <a class="btn alt" href="#teachers">اساتذہ دیکھیں</a>
+    </div>
+  </section>
+
+  <!-- Teachers -->
+  <section id="teachers" class="section card">
+    <h2>منتخب اساتذہ</h2>
+    <div class="grid grid-3" id="teacherGrid"><p>اساتذہ کا ڈیٹا لوڈ ہو رہا ہے...</p></div>
+  </section>
+
+  <!-- Add Teacher Section -->
+  <section id="addteacher" class="section card">
+    <h2>نیا استاد شامل کریں</h2>
+    <form id="teacherForm">
+      <label>نام</label>
+      <input type="text" id="t_name" required>
+
+      <label>ملک</label>
+      <input type="text" id="t_country" required>
+
+      <label>ریٹنگ (1-5)</label>
+      <input type="number" id="t_rating" step="0.01" value="5">
+
+      <label>قیمت (USD/گھنٹہ)</label>
+      <input type="number" id="t_price" value="10">
+
+      <label>زبانیں (comma-separated)</label>
+      <input type="text" id="t_langs" placeholder="Urdu, Arabic, English">
+
+      <label>Subjects (comma-separated)</label>
+      <input type="text" id="t_tags" placeholder="Tajweed, Hifz, Qiraat">
+
+      <label>Bio</label>
+      <textarea id="t_bio" rows="3"></textarea>
+
+      <label>Avatar (Image URL, optional)</label>
+      <input type="text" id="t_avatar">
+
+      <button type="button" class="btn" onclick="generateTeacherJSON()">JSON بنائیں</button>
+    </form>
+
+    <h3>آپ کی JSON Entry:</h3>
+    <pre id="t_output">فارم بھریں اور یہاں JSON دیکھیں...</pre>
+  </section>
+
+  <footer style="margin:18px 0 8px;text-align:center;color:var(--muted);font-size:13px">
+    © <span id="year"></span> Quran Tutor — قرآن کی روشنی ہر گھر تک
+  </footer>
+
+</div>
+
+<script>
+// Year
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Teachers dynamic load
+const teacherGrid = document.getElementById('teacherGrid');
+function avatarMarkup(name){
+  const initials = name.trim().slice(0,2);
+  return <div style="width:60px;height:60px;border-radius:12px;background:#ecfeff;color:#0e7490;display:grid;place-items:center;font-weight:900">${initials}</div>;
+}
+function teacherCard(t){
+  return `<div class="card teacher">
+    ${t.avatar ? <img class="avatar" src="${t.avatar}" alt="${t.name}"> : avatarMarkup(t.name)}
+    <div style="flex:1">
+      <div class="tmeta">
+        <div>
+          <div style="font-weight:800">${t.name} <span class="badge">${t.country}</span></div>
+          <div class="small">${t.langs.join('، ')} • ${t.tags.join('، ')}</div>
+        </div>
+        <div style="text-align:end">
+          <div class="price">$${t.price}/hr</div>
+          <div class="rating">★ ${t.rating.toFixed(2)}</div>
+        </div>
+      </div>
+      <div class="small" style="margin-top:6px">${t.bio}</div>
+      <div class="tags">${t.tags.map(tag=><span class="badge">${tag}</span>).join('')}</div>
+    </div>
+  </div>`;
+}
+function renderTeachers(list){ teacherGrid.innerHTML = list.map(teacherCard).join(''); }
+fetch('teachers.json').then(res=>res.json()).then(data=>renderTeachers(data)).catch(err=>{teacherGrid.innerHTML="<p>اساتذہ کے ڈیٹا کو لوڈ کرنے میں مسئلہ آیا۔</p>";});
+
+// Generate JSON from Add Teacher Form
+function generateTeacherJSON(){
+  const obj = {
+    id: Date.now(),
+    name: document.getElementById('t_name').value,
+    country: document.getElementById('t_country').value,
+    rating: parseFloat(document.getElementById('t_rating').value),
+    price: parseFloat(document.getElementById('t_price').value),
+    langs: document.getElementById('t_langs').value.split(',').map(l=>l.trim()),
+    tags: document.getElementById('t_tags').value.split(',').map(t=>t.trim()),
+    bio: document.getElementById('t_bio').value,
+    avatar: document.getElementById('t_avatar').value
+  };
+  document.getElementById('t_output').textContent = JSON.stringify(obj, null, 2);
+}
+</script>
+</body>
+</html>
